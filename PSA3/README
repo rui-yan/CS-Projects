@@ -1,0 +1,58 @@
+/** 
+ *  Name: Rui Yan
+ *  Login: cs8bwaka
+ *  Date: January 22, 2016
+ *  File: README
+ *  Sources of Help: None 
+ */
+
+PROGRAM DESCRIPTION:
+------------------------------------------------------------------------------
+1. GameManager.java
+-- This program is used to manage the gameplay. It will print out the controls 
+   used to operate the game and the current state of the 2048 board to the 
+   console then prompt you for a command. Then it will check if the 
+   command is valid and if it is valid, it will execute the command.
+   If it is not valid, it will exit and save the file.
+
+2. Board.java
+-- This program can save your unfinished board, rotate the board and
+   add a new tile to the board which are needed in the gameplay. 
+
+SHORT RESPONSE
+------------------------------------------------------------------------------
+Vim related Questions:
+1. How do you jump to a certain line number in your code with a single command 
+   in vim? For example, how do you jump directly to line 20? (Not arrow keys)
+   -- Type ":n" (Move to nth line of the file) in the command mode
+   -- Type ":20" (Move to line 20) in the command mode
+
+2. What command sets auto-indentation in vim? What command turns off (unsets) 
+   auto-indentation in vim?
+   -- Set auto-indentation: Type ":set autoindent" in the command mode
+   -- Unset auto-indentation: Type ":set noautoindent" in the command mode 		
+
+3. What is the command to undo changes in vim?
+   -- Type "u" in the command mode
+
+4. In vim, in command mode, how do you move forward one word in a line of code?
+   Move back one word? (Not arrow keys)
+   -- Type "b" to move forward one word and "w" to move back one word
+  
+Unix/Linux related Questions:
+5. How can you remove all .class files in a Unix directory with a single 
+   command?
+   -- > rm *.class
+
+6. How do you remove a Unix directory? Define the commands you would run on the
+   terminal when the directory is empty and when it is not empty. How do these 
+   command(s) differ?
+   -- If the directory is empty, we use command "> rmdir directoryname"
+   -- If it is not empty, we use command "> rm -r directoryname" 
+      or "> rm -rf directoryname"(not recommended)
+   -- Difference: 1) rmdir command - Delete the specified empty directories
+                  2) rm command - Delete the file including sub-directories
+ 		
+7. What is the command to clear a Unix terminal screen?
+   -- Type "clear" or "reset"
+
