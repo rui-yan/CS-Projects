@@ -4,7 +4,13 @@
 
 - Caesar Cipher
 - Word Pair
+- Turtle Everywhere
+- Draw My House
 - 2048 Game (Logic Part)
-   - (wait for adding)
+- 2048 Game (Final Version, UI implemented)
+- Critters Fighting Game
 
-Several of them might not be perfect. My codes are uploaded because they are interesting projects and I wish I can share it to more people. Please do not use and copy my codes for course assignments. Otherwise, you might violate the academic integrity.
+
+
+Several of them might not be perfect. I found my CS course projects interesting and wish I can share them to more people.
+Please **do not copy** my codes for course assignments. Otherwise, you might violate the academic integrity.
