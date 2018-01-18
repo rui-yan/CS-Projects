@@ -4,7 +4,7 @@
 // Enumeration Type used to represent a Movement Direction          //
 //  Each Direction object includes the vector of Direction          //
 //                                                                  //
-// Author:  Rui Yan                                                 //
+// Author:  W16-CSE8B-TA group                                      //
 // Date:    1/17/16                                                 //
 //------------------------------------------------------------------//
 

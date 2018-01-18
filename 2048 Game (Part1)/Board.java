@@ -2,7 +2,7 @@
 /* File header comment
  * Name: Rui Yan
  * Login: cs8bwaka 
- * Date: February 2nd, 2016
+ * Date: January 25, 2016
  * File: Board.java 
  * Sources of Help: Textbook  
  * 
@@ -160,7 +160,6 @@ public class Board {
 	    else
 		empty[location] = 4;
 
-
 	    // Loop over the 2D array grid and 1D array empty
 	    // and give the value of nth empty spot in empty
 	    // back to the 2D array. 
@@ -223,7 +222,7 @@ public class Board {
 	}
     }
 
-    /* Extra Credit
+    /* Extra Credit for PSA3
      * Method header comment
      * Name: isInputFileCorrectFormat
      * Purpose: This method will check if the input file is correct
@@ -314,13 +313,13 @@ public class Board {
 			    }
 			    return false;
 			}
-			gridCount +=1;
+			gridCount+=1;
 		    }
 		}
 	    }
 
 	    // Check if the number of tiles equal to size * size
-	    if (gridCount != size *size)
+	    if (gridCount != size * size)
 		return false;
 
 	    //write your code to check for all conditions and 
@@ -333,46 +332,325 @@ public class Board {
 	}
     }
 
-    // No need to change this for PSA3
-    // Performs a move Operation
+    // TODO PSA4
+    // Performs a move operation
+
+    /* Method header comment
+     * Name: move
+     * Purpose: This method will actually perform the main game logic         
+     *          and perform a move. 
+     * Parameters: Direction direction
+     * Return: boolean move. Return true if the move was successful
+     *         and false if it was not.
+     */
     public boolean move(Direction direction) {
-	return true;
-    }
 
-    // No need to change this for PSA3
-    // Check to see if we have a game over:wq
-    //
-    public boolean isGameOver() {
-	return false;
-    }
+	boolean mo = false;//initiate the boolean move
 
-    // No need to change this for PSA3
-    // Determine if we can move in a given direction
-    public boolean canMove(Direction direction) {
-	return true;
-    }
+	ArrayList<Integer> tileSet;//construct an arraylist
 
-    // Return the reference to the 2048 Grid
-    public int[][] getGrid() {
-	return grid;
-    }
+	// check if the board canMove
+	if(this.canMove(direction) == true){
+	    // loop over the column/row one by one
+	    for(int i = 0; i < GRID_SIZE; i++){
+		// initiate an arraylist	
+		tileSet = new ArrayList<Integer>();
 
-    // Return the score
-    public int getScore() {
-	return score;
-    }
+		// moveLeft
+		if(direction == Direction.LEFT){
+		    //loop over the first row in the board
+		    for(int j = 0; j < GRID_SIZE; j++){
+			//add the nonzero tiles into arrayList
+			//(from left to right)
+			if(grid[i][j]!=0)
+			    tileSet.add(grid[i][j]);
+		    }
 
-    @Override
-    public String toString() {
-	StringBuilder outputString = new StringBuilder();
-	outputString.append(String.format("Score: %d\n", score));
-	for (int row = 0; row < GRID_SIZE; row++) {
-	    for (int column = 0; column < GRID_SIZE; column++)
-		outputString.append(grid[row][column] == 0 ? "    -" :
-			String.format("%5d", grid[row][column]));
+		    //the following two steps are common in each 
+		    //canMove helper method
+		    //Step1: add zero tiles into the end of arrayList
+		    for(int p = 0; tileSet.size() < GRID_SIZE; p++){
+			tileSet.add(0);
+		    }
+		    //Step2: merge neighbouring tiles if they have same value 
+		    for(int n = 1; n < GRID_SIZE; n++){
+			if(tileSet.get(n-1) == tileSet.get(n)){
+			    tileSet.set(n-1,tileSet.get(n-1)+tileSet.get(n));
+			    tileSet.remove(n);
+			    tileSet.add(0);
+			    //update the score
+			    score += tileSet.get(n-1);
+			}
+		    }
+		    //load the updated arrayList back to the board
+		    //(from left to right)
+		    for(int t = 0; t < GRID_SIZE; t++){
+			grid[i][t] = tileSet.get(t);
+		    }
+		    //return true if the board move to left
+		    mo = true;
+		}
 
-	    outputString.append("\n");
+		// moveRight
+		if(direction == Direction.RIGHT){
+		    //loop over the first row in the board
+		    for(int j = 0; j < GRID_SIZE; j++){
+			//add the nonzero tiles into arrayList
+			//(from right to left)
+			if(grid[i][GRID_SIZE-j-1]!=0)
+			    tileSet.add(grid[i][GRID_SIZE-j-1]);
+		    }
+
+		    //common parts in canMove helper methods(see canMoveLeft)
+		    for(int p = 0; tileSet.size() < GRID_SIZE; p++){
+			tileSet.add(0);
+		    }
+		    for(int n = 1; n < GRID_SIZE; n++){
+			if(tileSet.get(n-1) == tileSet.get(n)){
+			    tileSet.set(n-1,tileSet.get(n-1)+tileSet.get(n));
+			    tileSet.remove(n);
+			    tileSet.add(0);
+			    score += tileSet.get(n-1);
+			}
+		    }
+		    //load the updated arrayList back to the board 
+		    //(from right to left)
+		    for(int t = 0; t < GRID_SIZE; t++){
+			grid[i][GRID_SIZE-t-1] = tileSet.get(t);
+		    }
+		    mo = true;	  
+		}
+
+		// moveUp
+		if(direction == Direction.UP){
+		    //loop over the first column in the board  
+		    for(int j = 0; j < GRID_SIZE; j++){
+			//add the nonzero tiles into arrayList
+			//(from up to down)
+			if(grid[j][i]!=0)
+			    tileSet.add(grid[j][i]);
+		    }
+		    //common parts in canMove helper methods(see canMoveLeft)
+		    for(int p = 0; tileSet.size() < GRID_SIZE; p++){
+			tileSet.add(0);
+		    }
+		    for(int n = 1; n < GRID_SIZE; n++){
+			if(tileSet.get(n-1) == tileSet.get(n)){
+			    tileSet.set(n-1,tileSet.get(n-1)+tileSet.get(n));
+			    tileSet.remove(n);
+			    tileSet.add(0);
+			    score += tileSet.get(n-1);
+			}
+		    }
+		    //load the updated arrayList back to the board 
+		    //(from up to down)
+		    for(int t = 0; t < GRID_SIZE; t++){
+			grid[t][i] = tileSet.get(t);
+		    }
+		    mo = true;
+		}
+
+		// moveDown
+		if(direction == Direction.DOWN){
+		    //loop over the first column in the board    
+		    for(int j = 0; j < GRID_SIZE; j++){
+			//add the nonzero tiles into arrayList
+			//(from down to up)
+			if(grid[GRID_SIZE-j-1][i]!=0)
+			    tileSet.add(grid[GRID_SIZE-j-1][i]);
+		    }
+		    //common parts in canMove helper methods(see canMoveLeft)
+		    for(int p = 0; tileSet.size() < GRID_SIZE; p++){
+			tileSet.add(0);
+		    }
+		    for(int n = 1; n < GRID_SIZE; n++){
+			if(tileSet.get(n-1) == tileSet.get(n)){
+			    tileSet.set(n-1,tileSet.get(n-1)+tileSet.get(n));
+			    tileSet.remove(n);
+			    tileSet.add(0);
+			    score += tileSet.get(n-1);
+			}
+		    }  
+		    //load the updated arrayList back to the board 
+		    //(from down to up) 
+		    for(int t = 0; t < GRID_SIZE; t++){
+			grid[GRID_SIZE-t-1][i] = tileSet.get(t);
+		    }
+		    mo = true;	
+		}
+	    }
 	}
-	return outputString.toString();
+	return mo;
     }
-}
+
+
+    // TODO PSA4
+    /* Method header comment
+     * Name: isGameOver
+     * Purpose: This method that checks if the game is over. The game is
+     *          over once there are no longer any valid moves left.
+     * Parameters: None
+     * Return: boolean isGameOver. Return true if the game is over and false
+     *         if the game is over.
+     */
+    public boolean isGameOver() {
+
+	boolean gameOver = true;
+
+	if(this.canMove(Direction.LEFT)==true)
+	    return false;  
+
+	else if(this.canMove(Direction.RIGHT)==true)
+	    return false;
+
+	else if(this.canMove(Direction.UP)==true)
+	    return false; 
+
+	else if(this.canMove(Direction.DOWN)==true)
+	    return false; 
+
+	else{
+	    System.out.println("Game Over!");
+	    return true;
+	}
+    }
+
+
+	// TODO PSA4
+	/* Method header comment
+	 * Name: canMove
+	 * Purpose: This method determines if the board can move in the 
+	 *          passed in direction.
+	 * Parameters: Direction direction. The direction in which the
+	 *             board move. 
+	 * Return: boolean canMove. If the board can move in the passed 
+	 *         in direction, this method will return true. 
+	 *         Otherwise it will return false.
+	 */
+	public boolean canMove(Direction direction) {
+
+	    boolean canm = false;
+
+	    if (direction == Direction.LEFT)
+		canm = this.canMoveLeft();
+
+	    else if (direction == Direction.RIGHT)
+		canm = this.canMoveRight();
+
+	    else if (direction == Direction.UP)
+		canm = this.canMoveUp();
+
+	    else if (direction == Direction.DOWN)
+		canm = this.canMoveDown();
+
+	    return canm;
+	}
+
+	/* Method header comment (helper method of method canMove())
+	 * Name: canMoveLeft
+	 * Purpose: This method determines if the board can move left. 
+	 * Parameters: None 
+	 * Return: boolean canMoveLeft. If the board can move left, 
+	 *         it will return true. Otherwise it will return false.
+	 */
+	private boolean canMoveLeft() {
+	    for (int i = 0; i < GRID_SIZE; i++){
+		for (int j = 1; j < GRID_SIZE; j++){
+
+		    if(grid[i][j-1]==0 && grid[i][j]!=0)
+			return true;
+
+		    if(grid[i][j-1]!=0 && grid[i][j-1]==grid[i][j])
+			return true;
+		}	
+	    }
+	    return false;
+	}
+
+	/* Method header comment (helper method of method canMove())
+	 * Name: canMoveRight
+	 * Purpose: This method determines if the board can move right.
+	 * Parameters: None 
+	 * Return: boolean canMoveRight. If the board can move right, 
+	 *         it will return true. Otherwise it will return false.
+	 */
+	private boolean canMoveRight() {
+	    for (int i = 0; i < GRID_SIZE; i++){
+		for (int j = GRID_SIZE-1; j > 0; j--) {
+
+		    if(grid[i][j]==0 && grid[i][j-1]!=0)
+			return true;
+
+		    if(grid[i][j]!=0 && grid[i][j]==grid[i][j-1])
+			return true;
+		}
+	    }
+	    return false;
+	}
+
+	/* Method header comment (helper method of method canMove())
+	 * Name: canMoveUp
+	 * Purpose: This method determines if the board can move up.
+	 * Parameters: None 
+	 * Return: boolean canMoveUp. If the board can move up, 
+	 *         it will return true. Otherwise it will return false.
+	 */
+	private boolean canMoveUp() {
+	    for (int j = 0; j < GRID_SIZE; j++){
+		for (int i = 1; i < GRID_SIZE; i++){
+
+		    if(grid[i-1][j]==0 && grid[i][j]!=0)
+			return true;
+
+		    if(grid[i-1][j]!=0 && grid[i-1][j]==grid[i][j])
+			return true;
+		}
+	    }
+	    return false;
+	}
+
+	/* Method header comment (helper method of method canMove())
+	 * Name: canMoveDown
+	 * Purpose: This method determines if the board can move down.
+	 * Parameters: None 
+	 * Return: boolean canMoveDown. If the board can move down, 
+	 *         it will return true. Otherwise it will return false.
+	 */
+	private boolean canMoveDown() {
+	    for (int j = 0; j < GRID_SIZE; j++){
+		for (int i = GRID_SIZE-1; i > 0; i--){
+
+		    if(grid[i][j]==0 && grid[i-1][j]!=0)
+			return true;
+
+		    if(grid[i][j]!=0 && grid[i][j]==grid[i-1][j])
+			return true;
+		}
+	    }
+	    return false;
+	}
+
+	// Return the reference to the 2048 Grid
+	public int[][] getGrid() {
+	    return grid;
+	}
+
+	// Return the score
+	public int getScore() {
+	    return score;
+	}
+
+	@Override
+	public String toString() {
+	    StringBuilder outputString = new StringBuilder();
+	    outputString.append(String.format("Score: %d\n", score));
+	    for (int row = 0; row < GRID_SIZE; row++) {
+		for (int column = 0; column < GRID_SIZE; column++)
+		    outputString.append(grid[row][column] == 0 ? "    -" :
+			    String.format("%5d", grid[row][column]));
+
+		outputString.append("\n");
+	    }
+	    return outputString.toString();
+	}
+    }

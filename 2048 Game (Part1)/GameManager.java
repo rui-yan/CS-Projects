@@ -2,7 +2,7 @@
 /* File header comment
  * Name: Rui Yan
  * Login: cs8bwaka 
- * Date: February 2nd, 2016
+ * Date: January 25, 2016
  * File: GameManager.java 
  * Sources of Help: Textbook  
  * 
@@ -120,10 +120,10 @@ public class GameManager {
 		else if (s.equals("l"))
 		    dir = Direction.RIGHT;
 
-		if (board.canMove(dir)){
-		    board.move(dir);
+		if(board.move(dir)==true)
 		    board.addRandomTile();
-		} // Check if it is a valid move. Perform
+
+	        // Check if it is a valid move. Perform
 		// the move and add a new tile
 
 		game = board.toString();
@@ -142,20 +142,15 @@ public class GameManager {
 		// out Controls and updated board, 
 		// and prompt the user for another command
 	    }
-
 	}
 
+	// Check if user decide to quit or the game is over
 	if(s.equals("q") || board.isGameOver()){
-	    // Check if user decide to quit or the game is over
-	    if (board.isGameOver() == true){
-		System.out.println("Game Over!");
-		// Print"Game over!" if the game is over
-	    }
 	    board.saveBoard(outputFileName);
 	    // Save the board to the output file specified by
 	    // the instance variable outputFileName 
 	    return;
-	    // Exit the method
+	    // Exit the game
 	}
     }
 
@@ -165,7 +160,6 @@ public class GameManager {
      * Parameters: None
      * Return: void
      */
-
     private void printControls() {
 	System.out.println("  Controls:");
 	System.out.println("    k - Move Up");
