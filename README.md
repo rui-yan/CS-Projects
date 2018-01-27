@@ -1,15 +1,15 @@
 ## CS course projects -- Java
 
- These are the codes I have done for my CS course projects.
-
-- Draw My House
+ These are the codes I have done for my CSE8A & 8B course projects at UCSD.
+ 
 - 2048 Game (Part1 Logic)
 - 2048 Game (Part2 UI)
 - Caesar Cipher
+- Critters Fighting Game
+- Draw My House
 - Slides with Sound
 - Turtle
 - Word Pair
-- Critters Fighting Game
 
-I found my CS course projects interesting and wish that I can share them to more people.
-Please **do not copy** my codes for your course assignments. Otherwise, you might violate the academic integrity.
+I found these course projects interesting and wish that I can share them to more people.
+Please **do not copy** my codes for course assignments. Otherwise, you will violate the academic integrity.
