@@ -1,10 +1,8 @@
-/** Your header comment goes here.
  *  Name: Rui Yan
  *  Login: cs8bwaka
  *  Date: January 12, 2016
  *  File: README
- *  Sources of Help: None 
- * */
+
 
 PROGRAM DESCRIPTION
 -----------------------------------------------------------
@@ -14,8 +12,8 @@ Programs in this java file can be used to do the following things:
 2. copy an array of integers.
 3. find the maximum/minimum integer in an array of integers and print it.
 4. sort the integer, which is in an array of integers, from small to large. 
-......................................
-*Caesar.java
+---------------------------
+* Caesar.java
 Programs in this java file implement a rotational cipher, which can be used
 to do the following things:
 
