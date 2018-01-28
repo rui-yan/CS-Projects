@@ -6,7 +6,7 @@
 - 2048 Game (Part2 UI)
 - Caesar Cipher
 - Critters Fighting Game
-- Draw My House
+- Draw A House
 - Slides with Sound
 - Turtle
 - Word Pair
