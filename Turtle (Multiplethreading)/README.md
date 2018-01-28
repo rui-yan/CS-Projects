@@ -1,16 +1,16 @@
-/** 
+ 
  *  Name: Rui Yan
  *  Login: cs8bwaka
  *  Date: March 4, 2016
+ *  CSE8B, PSA9: Multithreading (computer archtecture)
  *  File: README
- *  Sources of Help: None 
- */
+ 
 
 PROGRAM DESCRIPTION:
 -------------------------------------------------------------------------------
 Explain how to run your program. What happens when you run it? How did you test 
 your program to ensure correct output? 
--- Type "java ¨Ccp ./turtleClasses.jar:. CS8BTurtle" in the command mode to run
+- Type "java ¨Ccp ./turtleClasses.jar:. CS8BTurtle" in the command mode to run
    the program. When we run it, it will show one (or more than one) turtles and
    use those turtles (pens) to draw the characters in parallel. Check if the 
    final image looks the same as what you expected.

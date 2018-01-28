@@ -2,7 +2,6 @@
  *  Login: cs8bwaka
  *  Date: February 23, 2016
  *  File: README
- *  Sources of Help: None
 
 
 PROGRAM DESCRIPTION:

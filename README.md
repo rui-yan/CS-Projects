@@ -7,9 +7,9 @@
 - Caesar Cipher
 - Critters Fighting Game
 - Draw A House
-- Slides with Sound
+- Slideshow with Sound
 - Turtle
-- Word Pair
+- Word Clouds
 
 I found these course projects interesting and wish that I can share them to more people.
 Please **do not copy** my codes for course assignments. Otherwise, you will violate the academic integrity.

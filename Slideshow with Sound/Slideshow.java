@@ -8,32 +8,10 @@
  * Rui Yan: r9yan@ucsd.edu, 
  * Mengying Li: mel116@ucsd.edu
  * 
- * Partner Histories:
- * Rui Yan:
- PSA0 Partner:  Shijie Ji, cs8afbdh
- PSA1 Partner:  Shijie Ji, cs8afbdh
- PSA2 Partner:  Shijie Ji, cs8afbdh
- PSA3 Partner:  Shijie Ji, cs8afbdh
- PSA4 Partner:  Mengying Li, cs8afabf
- PSA5 Partner:  Mengying Li, cs8afabf
- PSA6 Partner:  Mengying Li, cs8afabf
- PSA7 Partner:  Mengying Li, cs8afabf
- PSA8 Partner:  Mengying Li, cs8afabf
- 
- * Mengying Li:
- PSA0 Partner:  Wendi Wu, cs8afacq
- PSA1 Partner:  David Amadeo, cs8afbcl
- PSA2 Partner:  Xinyu Wu, cs8afafl
- PSA3 Partner:  David Amadeo, cs8afbcl
- PSA4 Partner:  Rui Yan, cs8afbfd
- PSA5 Partner:  Rui Yan, cs8afbfd
- PSA6 Partner:  Rui Yan, cs8afbfd
- PSA7 Partner:  Rui Yan, cs8afbfd
- PSA8 Partner:  Rui Yan, cs8afbfd
- 
  * Date: 12/01/2015
  * Due Date:12/01/2015
- */ 
+ */
+
 import java.util.Random;
 public class Slideshow
 {
