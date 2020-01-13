@@ -38,6 +38,7 @@ Unix/Linux Questions:
 -- gvim -p *.java
 
 Java Question:
+
 5) What does the keyword static mean in regards to methods? Provide an example 
    use of a static method. 
 -- "static" keyword denotes that a method can be accessed without requiring an 
