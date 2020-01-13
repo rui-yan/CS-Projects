@@ -12,6 +12,7 @@ Tiles will slide as far as possible in the chosen direction until they are stopp
 
 Example
 
+```
 Controls:
 w - Move Up
 s - Move Down
@@ -30,13 +31,16 @@ q – Quit
 - - - -
 - - - -
 > f #bogus input, show control menu again
+```
 
+```
 Controls:
 w - Move Up
 s - Move Down
 a - Move Left
 d - Move Right
 q - Quit
+
 4 - - -
 - - 2 -
 - - - -
@@ -52,7 +56,8 @@ Game Over:
 n – New Game
 q - Quit
 > n #game restarts
-
+```
+```
 Controls:
 w - Move Up
 s - Move Down
@@ -75,4 +80,5 @@ q – Quit
 You Win!
 n – New Game
 q - Quit
-> q #program exits 
+> q #program exits
+```
